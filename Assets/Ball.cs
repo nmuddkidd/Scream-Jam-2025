@@ -1,46 +1,80 @@
-using System.Numerics;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-
+    [Header("Ball Components")]
     public Rigidbody2D rb;
-    public float startingsSpeed;
-    public bool freezeRotation; //if true, freeze rotation of ball
-    public UnityEngine.Vector2 startLocation;
-
     public SpriteRenderer sprite;
+    
+    [Header("Ball Settings")]
+    public bool freezeRotation = true; //if true, freeze rotation of ball
+    
+    [Header("Speed System")]
+    public float baseSpeed; // Set by BallManager when spawned
+    private float currentSpeedMultiplier = 1f; // For stacking modifiers
+    
+    private BallManager ballManager;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (freezeRotation == true)
+        // Find BallManager reference
+        ballManager = FindFirstObjectByType<BallManager>();
+        
+        if (freezeRotation)
         {
             rb.freezeRotation = true;
         }
-
-        if (startLocation != null)
-        {
-            transform.position = startLocation;
-        }
         
-        bool isRight = UnityEngine.Random.value >= 0.5f;
-
-        float xVelocity = -1f;
-
-        if (isRight == true)
-        {
-            xVelocity = 1f;
-        }
-
-        float yVelocity = UnityEngine.Random.Range(-1f, 1f);
-
-        rb.linearVelocity = new UnityEngine.Vector2(xVelocity * startingsSpeed, yVelocity * startingsSpeed);
+        // BallManager will handle setting velocity, not the Ball itself
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Keep trying to find BallManager if we don't have it
+        if (ballManager == null)
+        {
+            ballManager = FindFirstObjectByType<BallManager>();
+        }
+    }
+    
+    public void Initialize(float speed, Vector2 direction)
+    {
+        baseSpeed = speed;
+        currentSpeedMultiplier = 1f;
+        rb.linearVelocity = direction.normalized * (baseSpeed * currentSpeedMultiplier);
+    }
+    
+    public void SetSpeed(float newSpeed)
+    {
+        baseSpeed = newSpeed;
+        UpdateVelocity();
+    }
+    
+    public void ModifySpeed(float multiplier)
+    {
+        currentSpeedMultiplier *= multiplier;
+        UpdateVelocity();
+    }
+    
+    private void UpdateVelocity()
+    {
+        Vector2 currentDirection = rb.linearVelocity.normalized;
+        rb.linearVelocity = currentDirection * (baseSpeed * currentSpeedMultiplier);
+    }
+    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (ballManager == null) return;
         
+        if (other.CompareTag("AIGoal"))
+        {
+            // Player scored - ball hit AI's goal
+            ballManager.OnBallScored(gameObject, false); // false = player scored
+        }
+        else if (other.CompareTag("PlayerGoal"))
+        {
+            // AI scored - ball hit player's goal
+            ballManager.OnBallScored(gameObject, true); // true = AI scored
+        }
     }
 }

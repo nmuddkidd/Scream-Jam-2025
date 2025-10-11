@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Diagnostics;
 using UnityEngine;
 
 public class StateController : MonoBehaviour
@@ -15,6 +14,12 @@ public class StateController : MonoBehaviour
     public int playerScore;
     public int currentScoreThreshold;
 
+    //game references
+    private BallManager ballManager;
+    private Transform ballSpawnPoint;
+    private P1 playerPaddle;
+    private A1 aiPaddle;
+
     private float mixUpTimer;
     private bool waitingForInput; //waiting for player to press a key to start/restart
 
@@ -25,15 +30,38 @@ public class StateController : MonoBehaviour
         GameEnd,
         Results
     }
-    //Mixup Call
-    public Mixups mixups;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         InitializeGame();
-        GameObject targetGameObject = GameObject.Find("Mixups"); // Find by name
-                                                                           // Or: GameObject targetGameObject = GameObject.FindGameObjectWithTag("TargetTag"); // Find by tag
+        
+        // Find BallManager reference
+        ballManager = FindFirstObjectByType<BallManager>();
+        if (ballManager == null)
+        {
+            Debug.LogError("StateController: BallManager not found! Make sure BallManager script is attached to a GameObject in the scene.");
+            
+            // Try alternative search method
+            GameObject ballManagerObj = GameObject.Find("BallManager");
+            if (ballManagerObj != null)
+            {
+                ballManager = ballManagerObj.GetComponent<BallManager>();
+                if (ballManager != null)
+                {
+                    Debug.Log("StateController: Found BallManager using GameObject.Find method.");
+                }
+                else
+                {
+                    Debug.LogError("StateController: BallManager GameObject found but no BallManager script attached!");
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("StateController: BallManager found successfully!");
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -44,12 +72,25 @@ public class StateController : MonoBehaviour
 
     void InitializeGame()
     {
-        currentState = GameState.Start;
+        // TEMP: Skip start state and go directly to playing for testing
+        currentState = GameState.Playing; // Changed from GameState.Start
         playerLives = startingLives;
         playerScore = 0;
         currentScoreThreshold = baseScoreThreshold;
         mixUpTimer = mixUpInterval;
-        waitingForInput = true;
+        waitingForInput = false; // Changed from true
+        
+        // Delay auto-start to ensure all components are ready
+        Invoke(nameof(DelayedGameStart), 0.1f);
+        Debug.Log("Game initialization complete, starting in 0.1 seconds...");
+    }
+    
+    void DelayedGameStart()
+    {
+        // Auto-start the game after brief delay
+        SpawnBall();
+        EnablePaddles();
+        Debug.Log("Game Auto-Started (bypassing start state)");
     }
 
     void HandleCurrentState()
@@ -85,6 +126,10 @@ public class StateController : MonoBehaviour
 
     void HandleInput()
     {
+        // TEMP: Input handling disabled while using new Input System
+        // TODO: Implement proper Input System handling later
+        
+        /* 
         switch (currentState)
         {
             case GameState.Start:
@@ -101,6 +146,7 @@ public class StateController : MonoBehaviour
                 }
                 break;
         }
+        */
     }
 
     void StartGame()
@@ -148,10 +194,8 @@ public class StateController : MonoBehaviour
         {
             EndGame();
         }
-        else
-        {
-            SpawnBall();
-        }
+        // Note: BallManager handles respawning automatically after delay
+        // Only if playerLives > 0
     }
 
     void EndGame()
@@ -161,6 +205,12 @@ public class StateController : MonoBehaviour
         Debug.Log("Game Over");
 
         DisablePaddles();
+        
+        // Destroy all balls when game ends
+        if (ballManager != null)
+        {
+            ballManager.DestroyAllBalls();
+        }
     }
 
     void GoToResults()
@@ -171,38 +221,86 @@ public class StateController : MonoBehaviour
 
     void TriggerMixUp()
     {
-            if (targetGameObject != null)
-            {
-                targetScript = targetGameObject.GetComponent<TargetScript>();
-                if (targetScript != null)
-                {
-                    targetScript.start();
-                }
-                else
-                {
-                    Debug.LogError("TargetScript not found on TargetGameObject!");
-                }
-            }
-            else
-            {
-                Debug.LogError("TargetGameObject not found!");
-            }
-        }
+        Debug.Log("Mix-Up Triggered");
+        //call mixuphandler
     }
 
     void SpawnBall()
     {
-        //activate ball
+        // Try to find BallManager again if we don't have it
+        if (ballManager == null)
+        {
+            ballManager = FindFirstObjectByType<BallManager>();
+        }
+        
+        if (ballManager != null)
+        {
+            Debug.Log("StateController: Calling BallManager.SpawnBall()");
+            ballManager.SpawnBall();
+        }
+        else
+        {
+            Debug.LogError("StateController: Cannot spawn ball - BallManager still not found! Retrying in 0.5 seconds...");
+            // Retry after a short delay
+            Invoke(nameof(SpawnBall), 0.5f);
+        }
     }
 
     void EnablePaddles()
     {
-        //enable player and AI paddles
+        Debug.Log("StateController: Enabling paddles");
+        
+        // Find and enable player paddle
+        if (playerPaddle == null)
+        {
+            playerPaddle = FindFirstObjectByType<P1>();
+        }
+        if (playerPaddle != null)
+        {
+            playerPaddle.SetEnabled(true);
+        }
+        else
+        {
+            Debug.LogWarning("StateController: P1 paddle not found!");
+        }
+        
+        // Find and enable AI paddle
+        if (aiPaddle == null)
+        {
+            Debug.Log("StateController: Looking for A1 paddle...");
+            aiPaddle = FindFirstObjectByType<A1>();
+            if (aiPaddle != null)
+            {
+                Debug.Log("StateController: A1 paddle found!");
+            }
+            else
+            {
+                Debug.Log("StateController: A1 paddle NOT found by FindFirstObjectByType!");
+            }
+        }
+        if (aiPaddle != null)
+        {
+            Debug.Log("StateController: Enabling A1 paddle");
+            aiPaddle.SetEnabled(true);
+        }
+        else
+        {
+            Debug.LogWarning("StateController: A1 paddle not found!");
+        }
     }
 
     void DisablePaddles()
     {
-        //disable player and AI paddles
+        Debug.Log("StateController: Disabling paddles");
+        
+        if (playerPaddle != null)
+        {
+            playerPaddle.SetEnabled(false);
+        }
+        if (aiPaddle != null)
+        {
+            aiPaddle.SetEnabled(false);
+        }
     }
 
     public bool IsGamePlaying()
