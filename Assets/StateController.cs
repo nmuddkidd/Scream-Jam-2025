@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Diagnostics;
 using UnityEngine;
 
 public class StateController : MonoBehaviour
@@ -24,12 +25,15 @@ public class StateController : MonoBehaviour
         GameEnd,
         Results
     }
+    //Mixup Call
+    public Mixups mixups;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         InitializeGame();
-    }
+        GameObject targetGameObject = GameObject.Find("Mixups"); // Find by name
+                                                                           // Or: GameObject targetGameObject = GameObject.FindGameObjectWithTag("TargetTag"); // Find by tag
 
     // Update is called once per frame
     void Update()
@@ -167,8 +171,23 @@ public class StateController : MonoBehaviour
 
     void TriggerMixUp()
     {
-        Debug.Log("Mix-Up Triggered");
-        //call mixuphandler
+            if (targetGameObject != null)
+            {
+                targetScript = targetGameObject.GetComponent<TargetScript>();
+                if (targetScript != null)
+                {
+                    targetScript.start();
+                }
+                else
+                {
+                    Debug.LogError("TargetScript not found on TargetGameObject!");
+                }
+            }
+            else
+            {
+                Debug.LogError("TargetGameObject not found!");
+            }
+        }
     }
 
     void SpawnBall()
