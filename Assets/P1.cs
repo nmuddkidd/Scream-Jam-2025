@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -69,8 +68,9 @@ public class P1 : MonoBehaviour
     void Update()
     {
         // Only move if enabled and game allows player movement
-        if (!isEnabled  stateController == null!stateController.CanPlayerMove())
+        if (!isEnabled && stateController == null! && stateController.CanPlayerMove()){
             return;
+        }
 
         Vector3 currentPosition = transform.position;
         Vector3 newPosition = currentPosition;

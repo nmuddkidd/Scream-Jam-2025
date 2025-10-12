@@ -40,7 +40,7 @@ public class A1 : MonoBehaviour
         // Set up boundaries
         UpdateBoundaries();
         
-        Debug.Log("A1: AI Paddle initialized");
+        //Debug.Log("A1: AI Paddle initialized");
     }
     
     void UpdateBoundaries()
@@ -73,13 +73,13 @@ public class A1 : MonoBehaviour
             bottomLimit = -5f; // Default fallback
         }
         
-        Debug.Log($"A1: Boundaries set - Top: {topLimit}, Bottom: {bottomLimit}");
+        //Debug.Log($"A1: Boundaries set - Top: {topLimit}, Bottom: {bottomLimit}");
     }
 
     void Update()
     {
         // Debug: Check all conditions
-        Debug.Log($"A1 Update: isEnabled={isEnabled}, stateController={stateController != null}, isPlaying={stateController?.IsGamePlaying()}");
+        //Debug.Log($"A1 Update: isEnabled={isEnabled}, stateController={stateController != null}, isPlaying={stateController?.IsGamePlaying()}");
         
         // Only move if enabled and game is playing
         if (!isEnabled || stateController == null || !stateController.IsGamePlaying())
@@ -97,7 +97,7 @@ public class A1 : MonoBehaviour
             return;
         }
 
-        Debug.Log($"A1: Tracking ball at {currentBall.transform.position}");
+        //Debug.Log($"A1: Tracking ball at {currentBall.transform.position}");
 
         Vector2 ballPosition = currentBall.transform.position;
         Vector2 ballVelocity = currentBall.rb.linearVelocity;

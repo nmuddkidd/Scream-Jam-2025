@@ -12,13 +12,15 @@ public class Ball : MonoBehaviour
     [Header("Speed System")]
     public float baseSpeed; // Set by BallManager when spawned
     private float currentSpeedMultiplier = 1f; // For stacking modifiers
-    
+
     private BallManager ballManager;
+    public StateController stateController;
 
     void Start()
     {
         // Find BallManager reference
         ballManager = FindFirstObjectByType<BallManager>();
+        stateController = FindFirstObjectByType<StateController>();
         
         if (freezeRotation)
         {
@@ -31,10 +33,8 @@ public class Ball : MonoBehaviour
     void Update()
     {
         // Keep trying to find BallManager if we don't have it
-        if (ballManager == null)
-        {
-            ballManager = FindFirstObjectByType<BallManager>();
-        }
+        if (ballManager == null) { ballManager = FindFirstObjectByType<BallManager>(); }
+        if (stateController == null){stateController = FindFirstObjectByType<StateController>();}
     }
     
     public void Initialize(float speed, Vector2 direction)
@@ -61,11 +61,11 @@ public class Ball : MonoBehaviour
         Vector2 currentDirection = rb.linearVelocity.normalized;
         rb.linearVelocity = currentDirection * (baseSpeed * currentSpeedMultiplier);
     }
-    
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (ballManager == null) return;
-        
+
         if (other.CompareTag("AIGoal"))
         {
             // Player scored - ball hit AI's goal
@@ -76,5 +76,11 @@ public class Ball : MonoBehaviour
             // AI scored - ball hit player's goal
             ballManager.OnBallScored(gameObject, true); // true = AI scored
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        stateController.PlayerScored(10, gameObject.transform.position);
     }
 }

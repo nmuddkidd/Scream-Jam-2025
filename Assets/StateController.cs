@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public class StateController : MonoBehaviour
 {
@@ -26,6 +29,11 @@ public class StateController : MonoBehaviour
     private string[] MixupNames = { "Random Controls" };
     private mixupScripts mixupscripts;
 
+    //UI
+    public TMP_Text scoreText;
+
+    public GameObject blip;
+
     public enum GameState
     {
         Start,
@@ -41,6 +49,7 @@ public class StateController : MonoBehaviour
         mixupscripts = FindFirstObjectByType<mixupScripts>();
         // Find BallManager reference
         ballManager = FindFirstObjectByType<BallManager>();
+
         if (ballManager == null)
         {
             Debug.LogError("StateController: BallManager not found! Make sure BallManager script is attached to a GameObject in the scene.");
@@ -167,7 +176,7 @@ public class StateController : MonoBehaviour
         Debug.Log("Game Restarted");
     }
 
-    public void PlayerScored(int points)
+    public void PlayerScored(int points, Vector2 coordinates)
     {
         if (points != 0)
         {
@@ -186,6 +195,12 @@ public class StateController : MonoBehaviour
             currentScoreThreshold = playerScore * 2; //threshold to get life doubles
             Debug.Log("Extra life added | Lives: " + playerLives);
         }
+
+        scoreText.text = playerScore.ToString();
+        GameObject preblip = Instantiate(blip);
+        preblip.transform.position = coordinates;
+        blip script = preblip.GetComponent<blip>();
+        script.points = points;
     }
 
     public void AIScored()

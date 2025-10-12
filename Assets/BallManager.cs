@@ -96,7 +96,7 @@ public class BallManager : MonoBehaviour
             }
             else
             {
-                stateController.PlayerScored(1);
+                stateController.PlayerScored(1,transform.position);
             }
         }
         
