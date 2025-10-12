@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -22,6 +23,8 @@ public class StateController : MonoBehaviour
 
     private float mixUpTimer;
     private bool waitingForInput; //waiting for player to press a key to start/restart
+    private string[] MixupNames = { "Random Controls" };
+    private mixupScripts mixupscripts;
 
     public enum GameState
     {
@@ -35,7 +38,7 @@ public class StateController : MonoBehaviour
     void Start()
     {
         InitializeGame();
-        
+        mixupscripts = FindFirstObjectByType<mixupScripts>();
         // Find BallManager reference
         ballManager = FindFirstObjectByType<BallManager>();
         if (ballManager == null)
@@ -221,8 +224,7 @@ public class StateController : MonoBehaviour
 
     void TriggerMixUp()
     {
-        Debug.Log("Mix-Up Triggered");
-        //call mixuphandler
+        mixupscripts.DoMixup("Random Controls");
     }
 
     void SpawnBall()
