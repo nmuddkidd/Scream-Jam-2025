@@ -164,7 +164,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &7555092913415385801
 MonoBehaviour:
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   rb: {fileID: 8614587961335710746}
-  startingsSpeed: 5
-  freezeRotation: 0
-  startLocation: {x: 0, y: 0}
   sprite: {fileID: 0}
+  freezeRotation: 0
+  baseSpeed: 0
+  stateController: {fileID: 0}

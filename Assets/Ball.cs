@@ -1,3 +1,5 @@
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
@@ -80,7 +82,13 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
+        //Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.name.Equals("AP1") || collision.gameObject.name.Equals("UP1"))
+        {
+            //float theta = Vector2.SignedAngle(collision.gameObject.transform.position, gameObject.transform.position);
+            //rb.linearVelocity = new Vector2(rb.linearVelocity.magnitude * math.cos(theta),rb.linearVelocity.magnitude * math.sin(theta)) * -1;
+            rb.linearVelocity *= -1;
+        }
         stateController.PlayerScored(10, gameObject.transform.position);
     }
 }

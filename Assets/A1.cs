@@ -158,7 +158,7 @@ public class A1 : MonoBehaviour
             canReact = true;
         }
     }
-    
+
     void UpdateBallReference()
     {
         // If we don't have a ball or it's been destroyed, find a new one
@@ -185,7 +185,9 @@ public class A1 : MonoBehaviour
         }*/
 
         //AI tracks Closest ball each frame (OPTOMIZE THIS!)
-        currentBall = ballManager.GetClosestBall(transform.position.x).GetComponent<Ball>();
+        if (ballManager.HasActiveBalls()) {
+            currentBall = ballManager.GetBestBall(transform.position.x).GetComponent<Ball>();
+        }
 
         // Double-check that our ball reference is still valid
         if (currentBall != null && currentBall.gameObject == null)

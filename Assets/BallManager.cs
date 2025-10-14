@@ -187,20 +187,21 @@ public class BallManager : MonoBehaviour
         return activeBalls.Count > 0 ? activeBalls[0] : null;
     }
 
-    public GameObject GetClosestBall(float xorigin)
+    public GameObject GetBestBall(float xorigin)
     {
         CleanupDestroyedBalls();
         if (activeBalls.Count > 1)
         {
-            int smallest = 0;
+            int index = 0;
             for (int i = 1; i < activeBalls.Count; i++)
             {
-                if (activeBalls[i].transform.position.x - xorigin < activeBalls[smallest].transform.position.x - xorigin)
+                if (activeBalls[i].GetComponent<Rigidbody2D>().linearVelocity.x < 0 &&
+                    activeBalls[i].transform.position.x - xorigin < activeBalls[index].transform.position.x - xorigin)
                 {
-                    smallest = i;
+                    index = i;
                 }
             }
-            return activeBalls[smallest];
+            return activeBalls[index];
         }
         return activeBalls[0];
     }
