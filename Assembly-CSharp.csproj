@@ -49,12 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\A1.cs" />
-    <Compile Include="Assets\mixupScripts.cs" />
     <Compile Include="Assets\BallManager.cs" />
     <Compile Include="Assets\StateController.cs" />
     <Compile Include="Assets\blip.cs" />
     <Compile Include="Assets\P1.cs" />
     <Compile Include="Assets\Ball.cs" />
+    <Compile Include="Assets\Mixups.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

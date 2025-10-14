@@ -26,14 +26,11 @@ public class StateController : MonoBehaviour
 
     private float mixUpTimer;
     private bool waitingForInput; //waiting for player to press a key to start/restart
-    private string[] MixupNames = { "Random Controls" };
-    private mixupScripts mixupscripts;
+    private mixups mixups;
 
     //UI
     public TMP_Text scoreText;
-
     public GameObject blip;
-
     public enum GameState
     {
         Start,
@@ -46,7 +43,7 @@ public class StateController : MonoBehaviour
     void Start()
     {
         InitializeGame();
-        mixupscripts = FindFirstObjectByType<mixupScripts>();
+        mixups = FindFirstObjectByType<mixups>();
         // Find BallManager reference
         ballManager = FindFirstObjectByType<BallManager>();
 
@@ -239,7 +236,7 @@ public class StateController : MonoBehaviour
 
     void TriggerMixUp()
     {
-        mixupscripts.DoMixup("Random Controls");
+        mixups.DoMixup();
     }
 
     void SpawnBall()

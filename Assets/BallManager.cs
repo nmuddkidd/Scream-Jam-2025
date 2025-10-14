@@ -180,10 +180,28 @@ public class BallManager : MonoBehaviour
         CleanupDestroyedBalls();
         return activeBalls.Count > 0;
     }
-    
+
     public GameObject GetFirstBall()
     {
         CleanupDestroyedBalls();
         return activeBalls.Count > 0 ? activeBalls[0] : null;
+    }
+
+    public GameObject GetClosestBall(float xorigin)
+    {
+        CleanupDestroyedBalls();
+        if (activeBalls.Count > 1)
+        {
+            int smallest = 0;
+            for (int i = 1; i < activeBalls.Count; i++)
+            {
+                if (activeBalls[i].transform.position.x - xorigin < activeBalls[smallest].transform.position.x - xorigin)
+                {
+                    smallest = i;
+                }
+            }
+            return activeBalls[smallest];
+        }
+        return activeBalls[0];
     }
 }

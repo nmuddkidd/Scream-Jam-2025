@@ -162,32 +162,35 @@ public class A1 : MonoBehaviour
     void UpdateBallReference()
     {
         // If we don't have a ball or it's been destroyed, find a new one
-        if (currentBall == null)
+        /*if (currentBall == null)
         {
-            Debug.Log("A1: Looking for ball...");
+            //Debug.Log("A1: Looking for ball...");
             if (ballManager != null && ballManager.HasActiveBalls())
             {
-                GameObject ballObj = ballManager.GetFirstBall();
+                GameObject ballObj = ballManager.GetClosestBall(transform.position.x);
                 if (ballObj != null)
                 {
                     currentBall = ballObj.GetComponent<Ball>();
-                    Debug.Log("A1: Found ball to track");
+                    //Debug.Log("A1: Found ball to track");
                 }
                 else
                 {
-                    Debug.Log("A1: BallManager has balls but GetFirstBall() returned null");
+                    //Debug.Log("A1: BallManager has balls but GetFirstBall() returned null");
                 }
             }
             else
             {
-                Debug.Log($"A1: BallManager null or no active balls. BallManager={ballManager != null}, HasBalls={ballManager?.HasActiveBalls()}");
+                //Debug.Log($"A1: BallManager null or no active balls. BallManager={ballManager != null}, HasBalls={ballManager?.HasActiveBalls()}");
             }
-        }
-        
+        }*/
+
+        //AI tracks Closest ball each frame (OPTOMIZE THIS!)
+        currentBall = ballManager.GetClosestBall(transform.position.x).GetComponent<Ball>();
+
         // Double-check that our ball reference is still valid
         if (currentBall != null && currentBall.gameObject == null)
         {
-            Debug.Log("A1: Ball reference became invalid, clearing");
+            //Debug.Log("A1: Ball reference became invalid, clearing");
             currentBall = null;
         }
     }
@@ -196,7 +199,7 @@ public class A1 : MonoBehaviour
     public void SetEnabled(bool enabled)
     {
         isEnabled = enabled;
-        Debug.Log($"A1: AI Paddle {(enabled ? "enabled" : "disabled")}");
+        //Debug.Log($"A1: AI Paddle {(enabled ? "enabled" : "disabled")}");
     }
     
     // Public method to update boundaries if needed
