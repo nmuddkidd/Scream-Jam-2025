@@ -7,6 +7,7 @@ TagManager:
   - AIGoal
   - PlayerGoal
   - Logic
+  - Ball
   layers:
   - Default
   - TransparentFX

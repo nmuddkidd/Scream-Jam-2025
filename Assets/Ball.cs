@@ -85,8 +85,10 @@ public class Ball : MonoBehaviour
         //Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name.Equals("AP1") || collision.gameObject.name.Equals("UP1"))
         {
-            float theta = Vector2.SignedAngle(collision.gameObject.transform.position, gameObject.transform.position);
-            rb.linearVelocity = new Vector2(rb.linearVelocity.magnitude * math.cos(theta),rb.linearVelocity.magnitude * math.sin(theta)) *-1;
+            // Not sure what this was meant to do, commenting out for now. We can reply on unity physics for bounce.
+
+            // float theta = Vector2.SignedAngle(collision.gameObject.transform.position, gameObject.transform.position);
+            // rb.linearVelocity = new Vector2(rb.linearVelocity.magnitude * math.cos(theta),rb.linearVelocity.magnitude * math.sin(theta)) *-1;
         }
         stateController.PlayerScored(10, gameObject.transform.position);
     }

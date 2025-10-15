@@ -71,6 +71,26 @@ public class mixups : MonoBehaviour
 
     void ControlChange()
     {
-        
+
     }
+
+    void SuperPaddle()
+    {        
+        SuperPaddleMixup.Instance.DoMixUp();
+    }
+
+// For testing mixups in editor
+#if UNITY_EDITOR
+    void OnGUI()
+    {
+        if (GUILayout.Button("Do Mixup"))
+        {
+            DoMixup();
+        }
+        if (GUILayout.Button("Super Paddle"))
+        {
+            SuperPaddle();
+        }
+    }
+#endif
 }
