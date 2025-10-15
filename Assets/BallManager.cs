@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BallManager : MonoBehaviour
 {
+    public AudioClip aiscoresnd;
+    public AudioClip playerscoresnd;
+    private AudioSource scoreAudio;
+
     [Header("Ball Settings")]
     public GameObject ballPrefab;
     public Vector2 spawnPosition = Vector2.zero;
@@ -22,6 +26,9 @@ public class BallManager : MonoBehaviour
 
     void Start()
     {
+
+        scoreAudio = GetComponent<AudioSource>();
+
         Debug.Log("BallManager: Starting up...");
         stateController = FindFirstObjectByType<StateController>();
         if (stateController == null)
@@ -92,10 +99,12 @@ public class BallManager : MonoBehaviour
         {
             if (aiScored)
             {
+                scoreAudio.PlayOneShot(aiscoresnd, 1.0f);
                 stateController.AIScored();
             }
             else
             {
+                scoreAudio.PlayOneShot(playerscoresnd, 1.0f);
                 stateController.PlayerScored(1,transform.position);
             }
         }

@@ -4,7 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - playerinteractsnd: {fileID: 8300000, guid: f0c92cc2f8d3ee442bd97b29825b722e, type: 3}
+  - playerinteractsnd: {fileID: 8300000, guid: a4807c7ea827e1f42bbbeb52c28f8651, type: 3}
   - rb: {instanceID: 0}
   - sprite: {instanceID: 0}
   - stateController: {instanceID: 0}
