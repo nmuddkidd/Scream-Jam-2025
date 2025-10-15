@@ -10,9 +10,9 @@ public class Gorilla : MonoBehaviour
 
     public float speed = 5f;
 
-    public void SetTarget(GameObject Ball)
+    public void SetTarget(GameObject ballManager)
     {
-        rb.linearVelocity = Vector2.MoveTowards(Ball.transform.position, Gorilla_.transform.position, speed);
+        rb.linearVelocity = Vector2.MoveTowards(ballManager.transform.position, Gorilla_.transform.position, speed);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

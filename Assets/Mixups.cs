@@ -99,6 +99,10 @@ public class mixups : MonoBehaviour
         return new Vector2(Random.Range(-8.5f, 8.5f),Random.Range(-4.5f,4.5f));
     }
 
+    void SpawnGorilla()
+    {
+
+    }
 // For testing mixups in editor
 #if UNITY_EDITOR
     void OnGUI()
