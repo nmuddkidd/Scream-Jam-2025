@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    public AudioClip playerinteractsnd;
+    private AudioSource playerAudio;
+
     [Header("Ball Components")]
     public Rigidbody2D rb;
     public SpriteRenderer sprite;
@@ -20,6 +23,7 @@ public class Ball : MonoBehaviour
 
     void Start()
     {
+        playerAudio = GetComponent<AudioSource>();
         // Find BallManager reference
         ballManager = FindFirstObjectByType<BallManager>();
         stateController = FindFirstObjectByType<StateController>();
@@ -85,6 +89,7 @@ public class Ball : MonoBehaviour
         //Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name.Equals("AP1") || collision.gameObject.name.Equals("UP1"))
         {
+            playerAudio.PlayOneShot(playerinteractsnd, 1.0f);
             //float theta = Vector2.SignedAngle(collision.gameObject.transform.position, gameObject.transform.position);
             //rb.linearVelocity = new Vector2(rb.linearVelocity.magnitude * math.cos(theta),rb.linearVelocity.magnitude * math.sin(theta)) * -1;
             rb.linearVelocity *= -1;

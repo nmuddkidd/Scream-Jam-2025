@@ -1,2 +1,15 @@
 fileFormatVersion: 2
 guid: 096da32ceddd9994d86574547d8ec17f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - playerinteractsnd: {fileID: 8300000, guid: f0c92cc2f8d3ee442bd97b29825b722e, type: 3}
+  - rb: {instanceID: 0}
+  - sprite: {instanceID: 0}
+  - stateController: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
