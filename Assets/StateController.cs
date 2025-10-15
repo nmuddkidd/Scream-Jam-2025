@@ -30,6 +30,7 @@ public class StateController : MonoBehaviour
 
     //UI
     public TMP_Text scoreText;
+    public TMP_Text healthText;
     public GameObject blip;
     public enum GameState
     {
@@ -211,6 +212,12 @@ public class StateController : MonoBehaviour
         }
         // Note: BallManager handles respawning automatically after delay
         // Only if playerLives > 0
+        String healthbar = "";
+        for (int i = 0; i < playerLives; i++)
+        {
+            healthbar += '|';
+        }
+        healthText.text = healthbar;
     }
 
     void EndGame()
@@ -236,6 +243,7 @@ public class StateController : MonoBehaviour
 
     void TriggerMixUp()
     {
+        mixups = FindFirstObjectByType<mixups>();
         mixups.DoMixup();
     }
 

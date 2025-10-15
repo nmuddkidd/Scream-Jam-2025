@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\A1.cs" />
+    <Compile Include="Assets\rat.cs" />
     <Compile Include="Assets\BallManager.cs" />
     <Compile Include="Assets\StateController.cs" />
     <Compile Include="Assets\blip.cs" />
