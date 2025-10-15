@@ -75,8 +75,13 @@ public class mixups : MonoBehaviour
     }
 
     void SuperPaddle()
-    {        
+    {
         SuperPaddleMixup.Instance.DoMixUp();
+    }
+    
+    void RotateScreen()
+    {
+        RotateMixUp.Instance.DoMixUp();
     }
 
 // For testing mixups in editor
@@ -90,6 +95,10 @@ public class mixups : MonoBehaviour
         if (GUILayout.Button("Super Paddle"))
         {
             SuperPaddle();
+        }
+        if (GUILayout.Button("Rotate Screen"))
+        {
+            RotateScreen();
         }
     }
 #endif

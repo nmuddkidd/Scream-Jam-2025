@@ -14,6 +14,7 @@ public class SuperPaddleMixup : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        starttime = float.MaxValue;
     }
 
     // Update is called once per frame
