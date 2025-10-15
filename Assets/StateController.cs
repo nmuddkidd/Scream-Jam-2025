@@ -243,6 +243,7 @@ public class StateController : MonoBehaviour
 
     void TriggerMixUp()
     {
+        mixups = FindFirstObjectByType<mixups>();
         mixups.DoMixup();
     }
 

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    public AudioClip playerinteractsnd;
+    private AudioSource playerAudio;
+
     [Header("Ball Components")]
     public Rigidbody2D rb;
     public SpriteRenderer sprite;
@@ -20,6 +23,7 @@ public class Ball : MonoBehaviour
 
     void Start()
     {
+        playerAudio = GetComponent<AudioSource>();
         // Find BallManager reference
         ballManager = FindFirstObjectByType<BallManager>();
         stateController = FindFirstObjectByType<StateController>();
@@ -85,6 +89,8 @@ public class Ball : MonoBehaviour
         //Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name.Equals("AP1") || collision.gameObject.name.Equals("UP1"))
         {
+            playerAudio.PlayOneShot(playerinteractsnd, 1.0f);
+
             // Not sure what this was meant to do, commenting out for now. We can reply on unity physics for bounce.
 
             // float theta = Vector2.SignedAngle(collision.gameObject.transform.position, gameObject.transform.position);
