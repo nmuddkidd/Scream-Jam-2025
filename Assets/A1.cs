@@ -84,7 +84,7 @@ public class A1 : MonoBehaviour
         // Only move if enabled and game is playing
         if (!isEnabled || stateController == null || !stateController.IsGamePlaying())
         {
-            Debug.Log("A1: Not moving - conditions not met");
+            //Debug.Log("A1: Not moving - conditions not met");
             return;
         }
             
@@ -93,7 +93,7 @@ public class A1 : MonoBehaviour
         
         if (currentBall == null) 
         {
-            Debug.Log("A1: No ball found to track");
+            //Debug.Log("A1: No ball found to track");
             return;
         }
 

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class mixups : MonoBehaviour
 {
+    public GameObject rat;
     private int difficulty;
     private P1 player;
     private BallManager ballManager;
@@ -12,14 +13,16 @@ public class mixups : MonoBehaviour
 
     public void DoMixup()
     {
-        SpawnBall();
-        switch (Random.Range(0, 10))
+        switch (Random.Range(0, 3))
         {
             case 0:
+                SpawnBall();
                 break;
             case 1:
+                SpawnRat();
                 break;
             case 2:
+                RotateScreen();
                 break;
             case 3:
                 break;
@@ -59,6 +62,8 @@ public class mixups : MonoBehaviour
         }
     }
 
+
+
     void SpawnObstacle()
     {
 
@@ -78,10 +83,20 @@ public class mixups : MonoBehaviour
     {
         SuperPaddleMixup.Instance.DoMixUp();
     }
-    
+
     void RotateScreen()
     {
         RotateMixUp.Instance.DoMixUp();
+    }
+
+    void SpawnRat()
+    {
+        Instantiate(rat, randinbounds(),transform.rotation);
+    }
+
+    Vector2 randinbounds()
+    {
+        return new Vector2(Random.Range(-8.5f, 8.5f),Random.Range(-4.5f,4.5f));
     }
 
 // For testing mixups in editor
