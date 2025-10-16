@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   playerinteractsnd: {fileID: 8300000, guid: a4807c7ea827e1f42bbbeb52c28f8651, type: 3}
+  ballscollidesnd: {fileID: 8300000, guid: 50a2ca0f2ee7ead4e90c62338a28987b, type: 3}
   rb: {fileID: 8614587961335710746}
   sprite: {fileID: 0}
   freezeRotation: 0

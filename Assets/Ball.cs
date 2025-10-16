@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public AudioClip playerinteractsnd;
+    public AudioClip ballscollidesnd;
     private AudioSource playerAudio;
 
     [Header("Ball Components")]
@@ -89,13 +90,26 @@ public class Ball : MonoBehaviour
         //Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name.Equals("AP1") || collision.gameObject.name.Equals("UP1"))
         {
-            playerAudio.PlayOneShot(playerinteractsnd, 1.0f);
+            //Although this is same sound I don't have pitch randomizer for Racket sounds
+            playerAudio.PlayOneShot(playerinteractsnd);
 
             // Not sure what this was meant to do, commenting out for now. We can reply on unity physics for bounce.
 
             // float theta = Vector2.SignedAngle(collision.gameObject.transform.position, gameObject.transform.position);
             // rb.linearVelocity = new Vector2(rb.linearVelocity.magnitude * math.cos(theta),rb.linearVelocity.magnitude * math.sin(theta)) *-1;
         }
-        stateController.PlayerScored(10, gameObject.transform.position);
+        else if (collision.gameObject.name.Equals("BallPrefab(Clone)"))
+        {
+            //Simply to have a diff sound effect for when Balls collide (it does play twice but I like it)
+            playerAudio.PlayOneShot(ballscollidesnd);
+        }
+        else
+        {
+            //Will play same sound with randomized pitch for every other ball collision instance cuz it feels less repetitive
+            playerAudio.pitch = UnityEngine.Random.Range(1f, 2f);
+            playerAudio.PlayOneShot(playerinteractsnd);
+
+        }
+            stateController.PlayerScored(10, gameObject.transform.position);
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Diagnostics;
+using System;
 
 public class mixups : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class mixups : MonoBehaviour
 
     public void DoMixup()
     {
-        switch (Random.Range(0, 4))
+        switch (UnityEngine.Random.Range(0, 6))
         {
             case 0:
                 SpawnBall();
@@ -27,11 +28,13 @@ public class mixups : MonoBehaviour
                 RotateScreen();
                 break;
             case 3:
-                ControlChange();
+                SuperPaddle();
                 break;
             case 4:
+                SpeedUpSlowDown();
                 break;
             case 5:
+                ControlChange();
                 break;
             case 6:
                 break;
@@ -103,12 +106,18 @@ public class mixups : MonoBehaviour
 
     void SpawnRat()
     {
-        Instantiate(rat, randinbounds(),transform.rotation);
+        Instantiate(rat, randinbounds(), transform.rotation);
+    }
+    
+
+    void SpeedUpSlowDown()
+    {
+        SlowDownSpeedUpMixUp.Instance.DoMixUp();
     }
 
     Vector2 randinbounds()
     {
-        return new Vector2(Random.Range(-8.5f, 8.5f),Random.Range(-4.5f,4.5f));
+        return new Vector2(UnityEngine.Random.Range(-8.5f, 8.5f), UnityEngine.Random.Range(-4.5f,4.5f));
     }
 
     void SpawnGorilla()
@@ -130,6 +139,10 @@ public class mixups : MonoBehaviour
         if (GUILayout.Button("Rotate Screen"))
         {
             RotateScreen();
+        }
+        if (GUILayout.Button("Speed Up/Slow Down"))
+        {
+            SpeedUpSlowDown();
         }
         if (GUILayout.Button("Control Change"))
         {

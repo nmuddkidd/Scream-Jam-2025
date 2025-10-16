@@ -6,6 +6,9 @@ public class RotateMixUp : MonoBehaviour
     public static RotateMixUp Instance;
 
     [SerializeField]
+    bool change_gravity = false;
+
+    [SerializeField]
     float VerticalSize = 9.5f;
     [SerializeField]
     float OriginalSize = 5f;
@@ -41,7 +44,8 @@ public class RotateMixUp : MonoBehaviour
         mainCamera.DOOrthoSize(OriginalSize, animationDuration).SetEase(Ease.InOutSine);
         mainCamera.transform.DORotate(new Vector3(0, 0, 0), animationDuration, RotateMode.Fast).OnUpdate(() =>
         {
-            Physics2D.gravity = mainCamera.transform.up * -9.81f;
+            if (change_gravity)
+                Physics2D.gravity = mainCamera.transform.up * -9.81f;
         });
     }
     
@@ -52,7 +56,8 @@ public class RotateMixUp : MonoBehaviour
         mainCamera.DOOrthoSize(VerticalSize, animationDuration).SetEase(Ease.InOutSine);
         mainCamera.transform.DORotate(new Vector3(0, 0, Random.value < 0.5f ? 90 : -90), animationDuration, RotateMode.Fast).OnUpdate(() =>
         {
-            Physics2D.gravity = mainCamera.transform.up * -9.81f;
+            if (change_gravity)
+                Physics2D.gravity = mainCamera.transform.up * -9.81f;
         });
     }
 }
