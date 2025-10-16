@@ -3,16 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\ControlChange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\ControlChange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+<<<<<<< HEAD
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\Mixups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+=======
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Aidgi\\OneDrive\\Documents\\GitHub\\Scream-Jam-2025\\Assets\\Gorilla.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Gorilla.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\Scripts\\ControlChangeMixUp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\ControlChangeMixUp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Aidgi\\OneDrive\\Documents\\GitHub\\Scream-Jam-2025\\Assets\\StateController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\StateController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Aidgi\\OneDrive\\Documents\\GitHub\\Scream-Jam-2025\\Assets\\BallManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\BallManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Aidgi\\OneDrive\\Documents\\GitHub\\Scream-Jam-2025\\Assets\\Mixups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+>>>>>>> origin/master
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Mixups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\StateController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\StateController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\Scripts\\ControlChangeMixup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\ControlChangeMixup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\BallManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\BallManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\Scripts\\RotateMixUp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\RotateMixUp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\P1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\Gorilla.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Gorilla.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\StateController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\StateController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\A1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,49 +58,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+<<<<<<< HEAD
+          "SelectedChildIndex": 1,
+=======
+          "SelectedChildIndex": 2,
+>>>>>>> origin/master
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ControlChangeMixup.cs",
+              "DocumentMoniker": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\Scripts\\ControlChangeMixup.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ControlChangeMixup.cs",
+              "ToolTip": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\Scripts\\ControlChangeMixup.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ControlChangeMixup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< HEAD
+              "WhenOpened": "2025-10-16T00:13:11.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ControlChange.cs",
-              "DocumentMoniker": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\ControlChange.cs",
-              "RelativeDocumentMoniker": "Assets\\ControlChange.cs",
-              "ToolTip": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\ControlChange.cs",
-              "RelativeToolTip": "Assets\\ControlChange.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Mixups.cs",
+              "DocumentMoniker": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\Mixups.cs",
+              "RelativeDocumentMoniker": "Assets\\Mixups.cs",
+              "ToolTip": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\Mixups.cs",
+              "RelativeToolTip": "Assets\\Mixups.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAABwAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T23:31:59.224Z",
+              "WhenOpened": "2025-10-16T00:10:47.648Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ControlChangeMixUp.cs",
-              "DocumentMoniker": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\Scripts\\ControlChangeMixUp.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ControlChangeMixUp.cs",
-              "ToolTip": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\Scripts\\ControlChangeMixUp.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ControlChangeMixUp.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T23:31:14.118Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "P1.cs",
               "DocumentMoniker": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\P1.cs",
               "RelativeDocumentMoniker": "Assets\\P1.cs",
               "ToolTip": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\P1.cs",
               "RelativeToolTip": "Assets\\P1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T22:08:17.703Z"
+              "WhenOpened": "2025-10-15T22:08:17.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+=======
+              "WhenOpened": "2025-10-11T23:52:13.057Z",
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+>>>>>>> origin/master
               "Title": "BallManager.cs",
               "DocumentMoniker": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\BallManager.cs",
               "RelativeDocumentMoniker": "Assets\\BallManager.cs",
@@ -92,31 +126,57 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+<<<<<<< HEAD
+              "DocumentIndex": 6,
+=======
+              "DocumentIndex": 0,
+>>>>>>> origin/master
               "Title": "Gorilla.cs",
               "DocumentMoniker": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\Gorilla.cs",
               "RelativeDocumentMoniker": "Assets\\Gorilla.cs",
               "ToolTip": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\Gorilla.cs",
               "RelativeToolTip": "Assets\\Gorilla.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T19:09:17.826Z"
+              "WhenOpened": "2025-10-15T19:09:17.826Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+<<<<<<< HEAD
+              "DocumentIndex": 4,
+              "Title": "RotateMixUp.cs",
+              "DocumentMoniker": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\Scripts\\RotateMixUp.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\RotateMixUp.cs",
+              "ToolTip": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\Scripts\\RotateMixUp.cs",
+              "RelativeToolTip": "Assets\\Scripts\\RotateMixUp.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAC8AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T00:10:06.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+=======
+>>>>>>> origin/master
+              "DocumentIndex": 1,
               "Title": "StateController.cs",
               "DocumentMoniker": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\StateController.cs",
               "RelativeDocumentMoniker": "Assets\\StateController.cs",
               "ToolTip": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\StateController.cs",
               "RelativeToolTip": "Assets\\StateController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAhAAAAAAAAAA==",
+<<<<<<< HEAD
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAA8AAAA0AAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAEQBAAAAAAAAAIBJwDYAAAAhAAAAAAAAAA==",
+>>>>>>> origin/master
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-11T23:50:26.851Z"
+              "WhenOpened": "2025-10-11T23:50:26.851Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "A1.cs",
               "DocumentMoniker": "C:\\Users\\Owner\\GameDev-GameJam\\Scream-Jam-2025\\Assets\\A1.cs",
               "RelativeDocumentMoniker": "Assets\\A1.cs",

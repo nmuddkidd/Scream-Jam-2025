@@ -5,17 +5,14 @@ using System.Collections;
 public class Gorilla : MonoBehaviour
 {
 
-    public GameObject gorilla;
     private Rigidbody2D rb;
-    private Transform currentPoint;
-    public float jumpForce = 1200f;
-    public float xSpeed = 5f;
-    public float jumpInterval = 2f;
-    public float nextJumpTime;
-    public float direction = 1f;
-    public float leftBound = -7.5f;
-    public float rightBound = 7.5f;
-    public static Gorilla Instance;
+    public float jumpForce;
+    public float xSpeed;
+    public float jumpInterval;
+    private float nextJumpTime;
+    private float direction;
+    public float leftBound;
+    public float rightBound;
 
 
 
@@ -38,11 +35,11 @@ public class Gorilla : MonoBehaviour
     {
         float buffer = 0.05f;
         rb.linearVelocity = new Vector2(direction * xSpeed, rb.linearVelocity.y);
-        if (gorilla.transform.position.x <= leftBound + buffer && direction < 0f)
+        if (transform.position.x <= leftBound + buffer && direction < 0f)
         {
             direction = 1f;
         }
-        else if (gorilla.transform.position.x >= rightBound - buffer && direction > 0f)
+        else if (transform.position.x >= rightBound - buffer && direction > 0f)
         {
             direction = -1f;
         }
@@ -53,22 +50,4 @@ public class Gorilla : MonoBehaviour
         }
 
     }
-    IEnumerator SpawnGorillaRoutine()
-    {
-        while (true)
-        {
-            Vector2 spawnPosition = new Vector2(0, -4.2F);
-            GameObject spawnedGorilla = Instantiate(gorilla, spawnPosition, transform.rotation);
-            float waitTime = Random.Range(10f, 20f);
-            Debug.Log("Gorilla Spawned");
-            // Wait for a random time between 10 and 20 seconds before spawning the next gorilla
-            yield return new WaitForSeconds(waitTime);
-            Destroy(spawnedGorilla, 5f);
-        }
-    }
-    public void DoMixUp()
-    {
-        StartCoroutine(SpawnGorillaRoutine());
-    }
-    
 }

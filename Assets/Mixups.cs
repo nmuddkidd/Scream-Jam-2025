@@ -6,7 +6,7 @@ using System;
 public class mixups : MonoBehaviour
 {
     public GameObject rat;
-    public GameObject gorilla;
+    public GorillaSpawn GorillaSpawn;
     private int difficulty;
     private P1 player;
     private BallManager ballManager;
@@ -17,7 +17,7 @@ public class mixups : MonoBehaviour
 
     public void DoMixup()
     {
-        switch (UnityEngine.Random.Range(0, 6))
+        switch (UnityEngine.Random.Range(0, 7))
         {
             case 0:
                 SpawnBall();
@@ -118,7 +118,7 @@ public class mixups : MonoBehaviour
 
     void SpawnGorilla()
     {
-        Gorilla.Instance.DoMixUp();
+        GorillaSpawn.SpawnGorillaRoutine();
     }
     // For testing mixups in editor
 #if UNITY_EDITOR
@@ -136,17 +136,19 @@ public class mixups : MonoBehaviour
         {
             RotateScreen();
         }
-<<<<<<< Updated upstream
-        if (GUILayout.Button("Speed Up/Slow Down"))
-        {
-            SpeedUpSlowDown();
-        }
         if (GUILayout.Button("Control Change"))
         {
             ControlChange();
         }
-=======
->>>>>>> Stashed changes
+        if (GUILayout.Button("Spawn Gorilla"))
+        {
+            SpawnGorilla();
+        }
     }
 #endif
 }
+/*if (GUILayout.Button("Speed Up/Slow Down"))
+{
+    SpeedUpSlowDown();
+}
+*/
