@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class mixups : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class mixups : MonoBehaviour
 
     public void DoMixup()
     {
-        switch (Random.Range(0, 3))
+        switch (Random.Range(0, 4))
         {
             case 0:
                 SpawnBall();
@@ -25,6 +26,7 @@ public class mixups : MonoBehaviour
                 RotateScreen();
                 break;
             case 3:
+                ControlChange();
                 break;
             case 4:
                 break;
@@ -76,7 +78,7 @@ public class mixups : MonoBehaviour
 
     void ControlChange()
     {
-
+        StartCoroutine(ControlChangeMixup.Instance.DoMixUp());
     }
 
     void SuperPaddle()

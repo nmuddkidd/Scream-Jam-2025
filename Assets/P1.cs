@@ -6,8 +6,8 @@ public class P1 : MonoBehaviour
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     // input key member for mixup to change
-    public Key keyboardUpKey = Key.W;
-    public Key keyboardDownKey = Key.S;
+    public static Key keyboardUpKey = Key.W;
+    public static Key keyboardDownKey = Key.S;
 
     [Header("Boundary Objects")]
     public GameObject topBoundary;
