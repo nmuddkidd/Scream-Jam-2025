@@ -8,7 +8,7 @@ public class Gorilla : MonoBehaviour
     public GameObject PointA;
     public GameObject PointB;
     private Transform currentPoint;
-    public float jumpForce = 8f;
+    public float jumpForce = 1200f;
     public float xSpeed = 5f;
     public float jumpInterval = 2f;
     public float nextJumpTime;
@@ -46,7 +46,7 @@ public class Gorilla : MonoBehaviour
             }
             if (Time.time >= nextJumpTime && Mathf.Abs(rb.linearVelocity.y) < 0.01f)
             {
-            rb.AddForce(new Vector2(rb.linearVelocity.x, jumpForce), ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             nextJumpTime = Time.time + jumpInterval;
             }
             
