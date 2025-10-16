@@ -712,6 +712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::mixups
   rat: {fileID: 2760265817212557876, guid: 101d7afeb7890d142ac03581804474eb, type: 3}
+  gorilla: {fileID: 0}
 --- !u!1 &452687049
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,7 +729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &452687050
 Transform:
   m_ObjectHideFlags: 0
@@ -1740,7 +1741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1101760572
 Transform:
   m_ObjectHideFlags: 0
@@ -1825,12 +1826,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4114a08e405e4474f82b431280a2857c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  gorilla: {fileID: 1131148165}
   PointA: {fileID: 452687049}
   PointB: {fileID: 1101760571}
-  jumpForce: 1200
+  jumpForce: 600
   xSpeed: 5
   jumpInterval: 2
   nextJumpTime: 0
+  direction: 1
+  leftBound: -7.5
+  rightBound: 7.5
 --- !u!212 &1131148167
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1962,7 +1967,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 50
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
