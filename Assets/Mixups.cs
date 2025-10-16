@@ -13,7 +13,7 @@ public class mixups : MonoBehaviour
 
     public void DoMixup()
     {
-        switch (Random.Range(0, 4))
+        switch (Random.Range(0, 5))
         {
             case 0:
                 SpawnBall();
@@ -28,6 +28,7 @@ public class mixups : MonoBehaviour
                 SuperPaddle();
                 break;
             case 4:
+                SpeedUpSlowDown();
                 break;
             case 5:
                 break;
@@ -92,7 +93,13 @@ public class mixups : MonoBehaviour
 
     void SpawnRat()
     {
-        Instantiate(rat, randinbounds(),transform.rotation);
+        Instantiate(rat, randinbounds(), transform.rotation);
+    }
+    
+
+    void SpeedUpSlowDown()
+    {
+        SlowDownSpeedUpMixUp.Instance.DoMixUp();
     }
 
     Vector2 randinbounds()
@@ -119,6 +126,10 @@ public class mixups : MonoBehaviour
         if (GUILayout.Button("Rotate Screen"))
         {
             RotateScreen();
+        }
+        if (GUILayout.Button("Speed Up/Slow Down"))
+        {
+            SpeedUpSlowDown();
         }
     }
 #endif

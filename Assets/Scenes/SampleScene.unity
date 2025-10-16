@@ -256,6 +256,139 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &262179945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 262179946}
+  - component: {fileID: 262179947}
+  m_Layer: 0
+  m_Name: DrunkMixup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &262179946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262179945}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 419671820}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &262179947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262179945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa155ab1afbb52a409c636a7d019b121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SlowDownSpeedUpMixUp
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.11986842
+      value: 1.9947386
+      inSlope: -0.0038750833
+      outSlope: -0.063904285
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.19475764
+    - serializedVersion: 3
+      time: 0.18277916
+      value: 0.7182632
+      inSlope: -6.4310017
+      outSlope: -6.1915016
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.5288241
+      outWeight: 0.16292432
+    - serializedVersion: 3
+      time: 0.38011938
+      value: 0.53261656
+      inSlope: 2.362754
+      outSlope: 5.2018895
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.20483188
+      outWeight: 0.863375
+    - serializedVersion: 3
+      time: 0.48947096
+      value: 2.422974
+      inSlope: 0.018476237
+      outSlope: -0.113473184
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.9039562
+      outWeight: 0.69051343
+    - serializedVersion: 3
+      time: 0.67861503
+      value: 0.50823927
+      inSlope: -2.4168155
+      outSlope: -2.4168155
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8486369
+      value: 0.8931581
+      inSlope: 9.186003
+      outSlope: 9.186003
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9388353
+      value: 1.6233119
+      inSlope: -0.2172871
+      outSlope: -0.16920571
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.9220496
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.030161895
+      outSlope: -0.15594907
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.14793561
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  minDuration: 5
+  maxDuration: 10
 --- !u!1 &343774119
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +695,7 @@ Transform:
   m_Children:
   - {fileID: 493038780}
   - {fileID: 560635654}
+  - {fileID: 262179946}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &419671821
@@ -792,6 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8001f1955114d2d4796525c703d56ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RotateMixUp
+  change_gravity: 0
   VerticalSize: 9.5
   OriginalSize: 5.2
   animationDuration: 1
