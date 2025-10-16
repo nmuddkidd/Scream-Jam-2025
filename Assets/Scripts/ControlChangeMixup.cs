@@ -11,10 +11,19 @@ public class ControlChangeMixup : MonoBehaviour
     public TMP_Text control_info;
     public static ControlChangeMixup Instance;
     string[] controls = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // Awake is called once before the first execution of Update after the MonoBehaviour is created
+    void Awake()
     {
-        
+        Instance = this;
+
+        if (control_info == null)
+        {
+            control_info = FindFirstObjectByType<TMP_Text>();
+            if (control_info == null)
+            {
+                UnityEngine.Debug.LogError("No TMP_Text found in scene for control_info!");
+            }
+        }
     }
 
     // Update is called once per frame
@@ -109,6 +118,10 @@ public class ControlChangeMixup : MonoBehaviour
                 break;
         }
         int ran2 = UnityEngine.Random.Range(0, 25);
+        while(ran2 == ran)
+        {
+            ran2 = UnityEngine.Random.Range(0, 25);
+        }
         String Newkeydown = controls[ran2];
         switch (Newkeydown)
         {
@@ -191,9 +204,9 @@ public class ControlChangeMixup : MonoBehaviour
                 P1.keyboardDownKey = Key.Z;
                 break;
         }
-        control_info.text = "Up-" + controls[ran] + "/nDown-" + controls[ran2];
+        control_info.text = "Up-" + controls[ran] + "" + "\nDown-" + controls[ran2];
         control_info.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         control_info.gameObject.SetActive(false);
 
 

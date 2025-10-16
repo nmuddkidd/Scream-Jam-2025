@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Diagnostics;
 
 public class mixups : MonoBehaviour
 {
@@ -53,12 +54,12 @@ public class mixups : MonoBehaviour
 
         if (ballManager != null)
         {
-            Debug.Log("StateController: Calling BallManager.SpawnBall()");
+            UnityEngine.Debug.Log("StateController: Calling BallManager.SpawnBall()");
             ballManager.SpawnBall();
         }
         else
         {
-            Debug.LogError("StateController: Cannot spawn ball - BallManager still not found! Retrying in 0.5 seconds...");
+            UnityEngine.Debug.LogError("StateController: Cannot spawn ball - BallManager still not found! Retrying in 0.5 seconds...");
             // Retry after a short delay
             Invoke(nameof(SpawnBall), 0.5f);
         }
@@ -78,7 +79,16 @@ public class mixups : MonoBehaviour
 
     void ControlChange()
     {
-        StartCoroutine(ControlChangeMixup.Instance.DoMixUp());
+
+        if (ControlChangeMixup.Instance != null)
+        {
+            StartCoroutine(ControlChangeMixup.Instance.DoMixUp());
+        }
+        else
+        {
+            UnityEngine.Debug.LogError("ControlChangeMixup.Instance is null — make sure the object is in the scene and initialized.");
+        }
+
     }
 
     void SuperPaddle()
@@ -105,7 +115,7 @@ public class mixups : MonoBehaviour
     {
 
     }
-// For testing mixups in editor
+    // For testing mixups in editor
 #if UNITY_EDITOR
     void OnGUI()
     {
@@ -120,6 +130,10 @@ public class mixups : MonoBehaviour
         if (GUILayout.Button("Rotate Screen"))
         {
             RotateScreen();
+        }
+        if (GUILayout.Button("Control Change"))
+        {
+            ControlChange();
         }
     }
 #endif

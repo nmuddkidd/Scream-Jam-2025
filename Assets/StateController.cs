@@ -31,6 +31,7 @@ public class StateController : MonoBehaviour
     //UI
     public TMP_Text scoreText;
     public TMP_Text healthText;
+    public TMP_Text control_info;
     public GameObject blip;
     public enum GameState
     {
@@ -94,7 +95,6 @@ public class StateController : MonoBehaviour
         Invoke(nameof(DelayedGameStart), 0.1f);
         Debug.Log("Game initialization complete, starting in 0.1 seconds...");
     }
-    
     void DelayedGameStart()
     {
         // Auto-start the game after brief delay
