@@ -35,13 +35,10 @@ public class mixups : MonoBehaviour
                 //SpeedUpSlowDown();
                 break;
             case 5:
-<<<<<<< Updated upstream
                 ControlChange();
-=======
-                SpawnGorilla();
->>>>>>> Stashed changes
                 break;
             case 6:
+                SpawnGorilla();
                 break;
             case 7:
                 break;
@@ -94,7 +91,7 @@ public class mixups : MonoBehaviour
         }
         else
         {
-            UnityEngine.Debug.LogError("ControlChangeMixup.Instance is null — make sure the object is in the scene and initialized.");
+            UnityEngine.Debug.LogError("ControlChangeMixup.Instance is null ï¿½ make sure the object is in the scene and initialized.");
         }
 
     }
