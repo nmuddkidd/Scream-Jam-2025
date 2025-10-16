@@ -20,7 +20,7 @@ public class rat : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position,desiredpos,speed*Time.deltaTime);
-        if (new Vector2(transform.position.x, transform.position.y) == desiredpos)
+        if (Vector2.Distance(new Vector2(transform.position.x, transform.position.y), desiredpos) < 0.01f)
         {
             newdesired();
         }
