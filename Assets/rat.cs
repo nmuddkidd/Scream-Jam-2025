@@ -5,9 +5,16 @@ public class rat : MonoBehaviour
     public Rigidbody2D rb;
     public float speed;
     private Vector2 desiredpos;
+
+    [SerializeField]
+    float minduration = 10f, maxduration = 30f;
+    float duration;
+    float starttime;
     void Start()
     {
         newdesired();
+        duration = Random.Range(minduration, maxduration);
+        starttime = Time.realtimeSinceStartup;
     }
 
     void Update()
@@ -17,7 +24,13 @@ public class rat : MonoBehaviour
         {
             newdesired();
         }
-        Debug.Log(transform.position+" "+desiredpos);
+        Debug.Log(transform.position + " " + desiredpos);
+        if (Time.realtimeSinceStartup - starttime >= duration)
+        {            
+            duration = Random.Range(minduration, maxduration);
+            starttime = Time.realtimeSinceStartup;
+            Destroy(gameObject);
+        }
     }
 
     void newdesired()

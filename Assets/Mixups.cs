@@ -13,7 +13,7 @@ public class mixups : MonoBehaviour
 
     public void DoMixup()
     {
-        switch (Random.Range(0, 3))
+        switch (Random.Range(0, 4))
         {
             case 0:
                 SpawnBall();
@@ -25,6 +25,7 @@ public class mixups : MonoBehaviour
                 RotateScreen();
                 break;
             case 3:
+                SuperPaddle();
                 break;
             case 4:
                 break;
