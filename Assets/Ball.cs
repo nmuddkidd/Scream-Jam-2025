@@ -8,6 +8,8 @@ public class Ball : MonoBehaviour
     public AudioClip ballscollidesnd;
     private AudioSource playerAudio;
 
+    private AudioSource ballcollideAudio;
+
     [Header("Ball Components")]
     public Rigidbody2D rb;
     public SpriteRenderer sprite;
@@ -25,6 +27,7 @@ public class Ball : MonoBehaviour
     void Start()
     {
         playerAudio = GetComponent<AudioSource>();
+        ballcollideAudio = GetComponent<AudioSource>();
         // Find BallManager reference
         ballManager = FindFirstObjectByType<BallManager>();
         stateController = FindFirstObjectByType<StateController>();
@@ -103,7 +106,8 @@ public class Ball : MonoBehaviour
         else if (collision.gameObject.name.Equals("BallPrefab(Clone)"))
         {
             //Simply to have a diff sound effect for when Balls collide (it does play twice but I like it)
-            playerAudio.PlayOneShot(ballscollidesnd);
+            if (!ballcollideAudio.isPlaying)
+            ballcollideAudio.PlayOneShot(ballscollidesnd);
             Instantiate(particle, transform.position, Quaternion.identity);
         }
         else
