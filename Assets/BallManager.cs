@@ -14,7 +14,7 @@ public class BallManager : MonoBehaviour
     public GameObject ballPrefab;
     public Vector2 spawnPosition = Vector2.zero;
     public float initialSpeed = 8f;
-
+    
     [Header("Spawn Settings")]
     public float respawnDelay = 3f;
     [HideInInspector]
@@ -24,8 +24,6 @@ public class BallManager : MonoBehaviour
     private StateController stateController;
     private bool isRespawnScheduled = false;
 
-    private int _resetgoalscored;
-
     public System.Action<GameObject> OnBallSpawned;
     public System.Action<GameObject> OnBallDestroyed;
     public System.Action OnAllBallsDestroyed;
@@ -33,6 +31,8 @@ public class BallManager : MonoBehaviour
     [SerializeField]
     GameObject Bounds;
     Bounds boundsCache;
+
+    private int _resetgoalscored;
 
     void Awake()
     {
@@ -54,7 +54,9 @@ public class BallManager : MonoBehaviour
         {
             Debug.Log("BallManager: StateController found successfully!");
         }
+        _resetgoalscored = stateController.goalScored;
         InvokeRepeating("CleanUpBalls", 1f, 1f);
+
     }
 
     void Update()
@@ -135,8 +137,7 @@ public class BallManager : MonoBehaviour
             {
                 scoreAudio.PlayOneShot(aiscoresnd, 1.0f);
                 stateController.AIScored();
-                stateController.goalScored = 100;
-
+                stateController.goalScored = _resetgoalscored;
             }
             else
             {

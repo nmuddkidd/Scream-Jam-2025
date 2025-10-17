@@ -16,13 +16,14 @@ public class StateController : MonoBehaviour
     public GameState currentState = GameState.Start;
     public int playerLives;
     public int playerScore;
-
-    //add score
+    
+    [Header("Score Settings")]
     public int goalScored = 100;
-    public int scoreMult= 2;
-
+    public int scoreMult = 2;
     public int currentScoreThreshold;
 
+    [Header("Game References")]
+    
     //game references
     private BallManager ballManager;
     private Transform ballSpawnPoint;
