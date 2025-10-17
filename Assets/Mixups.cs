@@ -12,7 +12,6 @@ public class mixups : MonoBehaviour
     public AudioClip neweventsnd;
     private AudioSource neweventAudio;
     public AudioClip Gorillasnd;
-    private AudioSource GorillaAudio;
     public GameObject rat;
     public GameObject gorilla;
     public GameObject fakeballs;
@@ -27,14 +26,11 @@ public class mixups : MonoBehaviour
 
         player = FindFirstObjectByType<P1>();
         
-        //start gorilla audio
-        GorillaAudio = GetComponent<AudioSource>();
     }
 
     public void DoMixup()
     {        
         //play new event audio
-        neweventAudio.PlayOneShot(neweventsnd, 2.0f);
 
         switch (UnityEngine.Random.Range(0, 8))
         {
@@ -58,6 +54,7 @@ public class mixups : MonoBehaviour
                 break;
             case 6:
                 SpawnGorilla();
+                neweventAudio.PlayOneShot(Gorillasnd, 1.0f);
                 break;
             case 7:
                 GravityBalls();
@@ -66,6 +63,10 @@ public class mixups : MonoBehaviour
                 break;
             case 9:
                 break;
+        }
+        if (!neweventAudio.isPlaying)
+        {
+            neweventAudio.PlayOneShot(neweventsnd, 2.0f);
         }
     }
 
