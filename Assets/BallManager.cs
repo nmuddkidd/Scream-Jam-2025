@@ -24,6 +24,8 @@ public class BallManager : MonoBehaviour
     private StateController stateController;
     private bool isRespawnScheduled = false;
 
+    private int _resetgoalscored;
+
     public System.Action<GameObject> OnBallSpawned;
     public System.Action<GameObject> OnBallDestroyed;
     public System.Action OnAllBallsDestroyed;
@@ -133,11 +135,14 @@ public class BallManager : MonoBehaviour
             {
                 scoreAudio.PlayOneShot(aiscoresnd, 1.0f);
                 stateController.AIScored();
+                stateController.goalScored = 100;
+
             }
             else
             {
                 scoreAudio.PlayOneShot(playerscoresnd, 1.0f);
                 stateController.PlayerScored(stateController.goalScored, transform.position);
+                stateController.goalScored = stateController.goalScored * stateController.scoreMult;
             }
         }
         

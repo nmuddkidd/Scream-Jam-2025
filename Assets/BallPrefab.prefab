@@ -140,6 +140,7 @@ MonoBehaviour:
   freezeRotation: 0
   baseSpeed: 0
   stateController: {fileID: 0}
+  particle: {fileID: 799183202662111319, guid: b46522552e5957e4b8a16f894c930bb4, type: 3}
 --- !u!82 &8048644496327114679
 AudioSource:
   m_ObjectHideFlags: 0
