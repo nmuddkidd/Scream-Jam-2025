@@ -14,6 +14,7 @@ public class mixups : MonoBehaviour
     public AudioClip Gorillasnd;
     public GameObject rat;
     public GameObject gorilla;
+    public GameObject fakeballs;
     public TMP_Text mixuptext;
     private P1 player;
     private BallManager ballManager;
@@ -28,10 +29,10 @@ public class mixups : MonoBehaviour
     }
 
     public void DoMixup()
-    {        
+    {
         //play new event audio
 
-        switch (UnityEngine.Random.Range(0, 8))
+        switch (UnityEngine.Random.Range(0, 10))
         {
             case 0:
                 SpawnBall();
@@ -59,14 +60,28 @@ public class mixups : MonoBehaviour
                 GravityBalls();
                 break;
             case 8:
+                FakeBalls();
                 break;
             case 9:
+                TextPopUp("Press Alt+F4 to win!");
                 break;
         }
         if (!neweventAudio.isPlaying)
         {
             neweventAudio.PlayOneShot(neweventsnd, 2.0f);
         }
+    }
+    
+    void FakeBalls()
+    {
+
+        if (!(FindFirstObjectByType<StateController>().playerScore >= 1000))
+        {
+            DoMixup();
+            return;
+        }
+        TextPopUp("Wait are they real?");
+        Instantiate(fakeballs, new Vector2(0, 0), transform.rotation);
     }
 
     void SpawnBall()
@@ -199,6 +214,10 @@ public class mixups : MonoBehaviour
         if (GUILayout.Button("Gravity Balls"))
         {
             GravityBalls();
+        }
+        if (GUILayout.Button("Fake Balls"))
+        {
+            FakeBalls();
         }
     }
 #endif
