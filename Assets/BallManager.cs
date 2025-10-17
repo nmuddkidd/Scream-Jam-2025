@@ -116,11 +116,7 @@ public class BallManager : MonoBehaviour
             else
             {
                 scoreAudio.PlayOneShot(playerscoresnd, 1.0f);
-<<<<<<< HEAD
-                stateController.PlayerScored(1,transform.position);
-=======
                 stateController.PlayerScored(stateController.goalScored, transform.position);
->>>>>>> parent of 9ab2c0b (Added a score multiplier)
             }
         }
         
