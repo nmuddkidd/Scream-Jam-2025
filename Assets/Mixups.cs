@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Diagnostics;
-using System;
 using TMPro;
 using System.Threading;
 using DG.Tweening;
@@ -166,7 +165,9 @@ public class mixups : MonoBehaviour
     void SpawnRat()
     {
         TextPopUp("RATSSS!!!!");
-        Instantiate(rat, randinbounds(), transform.rotation);
+        for (int i = Random.Range(2, 7); i > 0; i--) { 
+            Instantiate(rat, randinbounds(), transform.rotation);
+        }
     }
 
     Vector2 randinbounds()

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;git
+using UnityEngine.SceneManagement;
 
 public class StateController : MonoBehaviour
 {

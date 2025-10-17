@@ -1732,7 +1732,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: viva
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a40083d727dc9f41a0b121bb33d352b, type: 2}
   m_sharedMaterial: {fileID: -204219155795568887, guid: 6a40083d727dc9f41a0b121bb33d352b, type: 2}
