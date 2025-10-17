@@ -852,7 +852,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::mixups
   neweventsnd: {fileID: 8300000, guid: f1d62305e93e457468b2a063b5b7da1c, type: 3}
-  neweventsnd: {fileID: 0}
   Gorillasnd: {fileID: 0}
   rat: {fileID: 2760265817212557876, guid: 101d7afeb7890d142ac03581804474eb, type: 3}
   gorilla: {fileID: 2772263963157537130, guid: 61e8a3c0277d6e143b74ac639dc08808, type: 3}
@@ -2214,6 +2213,8 @@ MonoBehaviour:
   currentState: 0
   playerLives: 0
   playerScore: 0
+  goalScored: 100
+  scoreMult: 2
   currentScoreThreshold: 0
   scoreText: {fileID: 1313974557}
   healthText: {fileID: 1699996219}
