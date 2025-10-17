@@ -14,7 +14,7 @@ public class BallManager : MonoBehaviour
     public GameObject ballPrefab;
     public Vector2 spawnPosition = Vector2.zero;
     public float initialSpeed = 8f;
-
+    
     [Header("Spawn Settings")]
     public float respawnDelay = 3f;
     [HideInInspector]
@@ -23,8 +23,6 @@ public class BallManager : MonoBehaviour
     public UnityEvent<Ball> OnBallSpawnedEvent;
     private StateController stateController;
     private bool isRespawnScheduled = false;
-
-    private int _resetgoalscored;
 
     public System.Action<GameObject> OnBallSpawned;
     public System.Action<GameObject> OnBallDestroyed;
@@ -37,6 +35,7 @@ public class BallManager : MonoBehaviour
 
     void Start()
     {
+
         scoreAudio = GetComponent<AudioSource>();
 
         Debug.Log("BallManager: Starting up...");
@@ -49,8 +48,6 @@ public class BallManager : MonoBehaviour
         {
             Debug.Log("BallManager: StateController found successfully!");
         }
-        _resetgoalscored = stateController.goalScored;
-
     }
 
     void Update()
@@ -115,14 +112,11 @@ public class BallManager : MonoBehaviour
             {
                 scoreAudio.PlayOneShot(aiscoresnd, 1.0f);
                 stateController.AIScored();
-                stateController.goalScored = 100;
-
             }
             else
             {
                 scoreAudio.PlayOneShot(playerscoresnd, 1.0f);
                 stateController.PlayerScored(stateController.goalScored, transform.position);
-                stateController.goalScored = stateController.goalScored * stateController.scoreMult;
             }
         }
         
