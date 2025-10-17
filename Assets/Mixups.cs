@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using System.Diagnostics;
 using System;
+using TMPro;
+using System.Threading;
 
 public class mixups : MonoBehaviour
 {
@@ -11,9 +13,10 @@ public class mixups : MonoBehaviour
 
     public GameObject rat;
     public GameObject gorilla;
-    private int difficulty;
+    public TMP_Text mixuptext;
     private P1 player;
     private BallManager ballManager;
+    private float Timer;
     void Start()
     {
         //start new event audio
@@ -128,6 +131,7 @@ public class mixups : MonoBehaviour
 
     void SpawnGorilla()
     {
+        mixuptext.text = "goilla";
         Instantiate(gorilla, randinbounds(), transform.rotation);
     }
     // For testing mixups in editor
