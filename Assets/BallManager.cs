@@ -12,7 +12,7 @@ public class BallManager : MonoBehaviour
     public GameObject ballPrefab;
     public Vector2 spawnPosition = Vector2.zero;
     public float initialSpeed = 8f;
-    
+
     [Header("Spawn Settings")]
     public float respawnDelay = 3f;
     
@@ -105,7 +105,7 @@ public class BallManager : MonoBehaviour
             else
             {
                 scoreAudio.PlayOneShot(playerscoresnd, 1.0f);
-                stateController.PlayerScored(1,transform.position);
+                stateController.PlayerScored(stateController.goalScored, transform.position);
             }
         }
         
