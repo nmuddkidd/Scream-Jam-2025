@@ -93,6 +93,8 @@ public class Ball : MonoBehaviour
             //Although this is same sound I don't have pitch randomizer for Racket sounds
             playerAudio.PlayOneShot(playerinteractsnd);
 
+            rb.linearVelocity += new Vector2(UnityEngine.Random.Range(-0.1f, 0.1f), UnityEngine.Random.Range(-0.1f, 0.1f));
+
             // Not sure what this was meant to do, commenting out for now. We can reply on unity physics for bounce.
 
             // float theta = Vector2.SignedAngle(collision.gameObject.transform.position, gameObject.transform.position);

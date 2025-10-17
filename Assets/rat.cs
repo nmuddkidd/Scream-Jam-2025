@@ -25,12 +25,12 @@ public class rat : MonoBehaviour
             newdesired();
         }
         //Debug.Log(transform.position + " " + desiredpos);
-        if (Time.realtimeSinceStartup - starttime >= duration)
-        {            
-            duration = Random.Range(minduration, maxduration);
-            starttime = Time.realtimeSinceStartup;
-            Destroy(gameObject);
-        }
+        // if (Time.realtimeSinceStartup - starttime >= duration)
+        // {            
+        //     duration = Random.Range(minduration, maxduration);
+        //     starttime = Time.realtimeSinceStartup;
+        //     Destroy(gameObject);
+        // }
     }
 
     void newdesired()

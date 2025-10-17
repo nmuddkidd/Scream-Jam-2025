@@ -4,13 +4,15 @@ using System.Diagnostics;
 using System;
 using TMPro;
 using System.Threading;
+using DG.Tweening;
 
 public class mixups : MonoBehaviour
 {
     //put in new event audio
     public AudioClip neweventsnd;
     private AudioSource neweventAudio;
-
+    public AudioClip Gorillasnd;
+    private AudioSource GorillaAudio;
     public GameObject rat;
     public GameObject gorilla;
     public TMP_Text mixuptext;
@@ -21,16 +23,19 @@ public class mixups : MonoBehaviour
     {
         //start new event audio
         neweventAudio = GetComponent<AudioSource>();
-        
+
         player = FindFirstObjectByType<P1>();
+        
+        //start gorilla audio
+        GorillaAudio = GetComponent<AudioSource>();
     }
 
     public void DoMixup()
-    {
+    {        
         //play new event audio
         neweventAudio.PlayOneShot(neweventsnd, 2.0f);
 
-        switch (UnityEngine.Random.Range(0, 10))
+        switch (UnityEngine.Random.Range(0, 8))
         {
             case 0:
                 SpawnBall();
@@ -45,7 +50,7 @@ public class mixups : MonoBehaviour
                 SuperPaddle();
                 break;
             case 4:
-                //SpeedUpSlowDown();
+                SpeedUpSlowDown();
                 break;
             case 5:
                 ControlChange();
@@ -54,6 +59,7 @@ public class mixups : MonoBehaviour
                 SpawnGorilla();
                 break;
             case 7:
+                GravityBalls();
                 break;
             case 8:
                 break;
@@ -64,6 +70,7 @@ public class mixups : MonoBehaviour
 
     void SpawnBall()
     {
+        TextPopUp("More balls for you!");
         // Try to find BallManager again if we don't have it
         if (ballManager == null)
         {
@@ -83,6 +90,18 @@ public class mixups : MonoBehaviour
         }
     }
 
+    void TextPopUp(string text)
+    {
+        DOTween.Complete(mixuptext.transform);
+        mixuptext.text = text;
+        mixuptext.transform.DOScale(1.5f, 0.5f).SetEase(Ease.InOutBack).SetLoops(2, LoopType.Yoyo);
+    }
+
+    void SpeedUpSlowDown()
+    {
+        TextPopUp("Whats wrong with the clock?");
+        SlowDownSpeedUpMixUp.Instance.DoMixUp();
+    }
 
 
     void SpawnObstacle()
@@ -95,12 +114,19 @@ public class mixups : MonoBehaviour
 
     }
 
+    void GravityBalls()
+    {
+        TextPopUp("Wait they fall?");
+        GravityBallsMixUp.Instance.DoMixUp();
+    }
+
     void ControlChange()
     {
+        TextPopUp("Control's scuffed!!");
 
         if (ControlChangeMixup.Instance != null)
         {
-            StartCoroutine(ControlChangeMixup.Instance.DoMixUp());
+           ControlChangeMixup.Instance.DoMixUp();
         }
         else
         {
@@ -111,16 +137,19 @@ public class mixups : MonoBehaviour
 
     void SuperPaddle()
     {
+        TextPopUp("Super Paddle!!");
         SuperPaddleMixup.Instance.DoMixUp();
     }
 
     void RotateScreen()
     {
+        TextPopUp("Spinny Screen!!");
         RotateMixUp.Instance.DoMixUp();
     }
 
     void SpawnRat()
     {
+        TextPopUp("RATSSS!!!!");
         Instantiate(rat, randinbounds(), transform.rotation);
     }
 
@@ -131,7 +160,7 @@ public class mixups : MonoBehaviour
 
     void SpawnGorilla()
     {
-        mixuptext.text = "goilla";
+        TextPopUp("Goilla!");
         Instantiate(gorilla, randinbounds(), transform.rotation);
     }
     // For testing mixups in editor
@@ -157,6 +186,18 @@ public class mixups : MonoBehaviour
         if (GUILayout.Button("Spawn Gorilla"))
         {
             SpawnGorilla();
+        }
+        if (GUILayout.Button("Spawn Rat"))
+        {
+            SpawnRat();
+        }
+        if (GUILayout.Button("Spawn Ball"))
+        {
+            SpawnBall();
+        }
+        if (GUILayout.Button("Gravity Balls"))
+        {
+            GravityBalls();
         }
     }
 #endif
