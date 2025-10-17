@@ -10,7 +10,8 @@ public class mixups : MonoBehaviour
     //put in new event audio
     public AudioClip neweventsnd;
     private AudioSource neweventAudio;
-
+    public AudioClip Gorillasnd;
+    private AudioSource GorillaAudio;
     public GameObject rat;
     public GameObject gorilla;
     public TMP_Text mixuptext;
@@ -21,8 +22,11 @@ public class mixups : MonoBehaviour
     {
         //start new event audio
         neweventAudio = GetComponent<AudioSource>();
-        
+
         player = FindFirstObjectByType<P1>();
+        
+        //start gorilla audio
+        GorillaAudio = GetComponent<AudioSource>();
     }
 
     public void DoMixup()
