@@ -43,7 +43,10 @@
   </PropertyGroup>
   <ItemGroup>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Analyzer Include="C:\Users\nmudd\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.1.3\Analyzers\Microsoft.Unity.Analyzers.dll" />
+=======
+>>>>>>> ae671ee95faafd088bb326e8113439597a8d1f0b
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.7f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.7f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.7f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
@@ -52,7 +55,11 @@
     <Analyzer Include="D:\Unity\6000.2.7f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="D:\Unity\6000.2.7f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="D:\Unity\6000.2.7f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
+<<<<<<< HEAD
 >>>>>>> 5c3c001a05eb74ed84f467c117840a1d75ae92e0
+=======
+>>>>>>> origin/master
+>>>>>>> ae671ee95faafd088bb326e8113439597a8d1f0b
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\RotateMixUp.cs" />
@@ -70,6 +77,7 @@
     <Compile Include="Assets\Scripts\SlowDownSpeedUpMixUp.cs" />
     <Compile Include="Assets\Scripts\ControlChangeMixup.cs" />
     <Compile Include="Assets\Ball.cs" />
+    <Compile Include="Assets\EndScreenController.cs" />
     <Compile Include="Assets\Mixups.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -612,6 +620,14 @@
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>Library\PackageCache\com.unity.collections@d49facba0036\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.2.7f2\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.2.7f2\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StateController : MonoBehaviour
 {
@@ -16,14 +17,13 @@ public class StateController : MonoBehaviour
     public GameState currentState = GameState.Start;
     public int playerLives;
     public int playerScore;
-    
-    [Header("Score Settings")]
+
+    //add score
     public int goalScored = 100;
-    public int scoreMult = 2;
+    public int scoreMult= 2;
+
     public int currentScoreThreshold;
 
-    [Header("Game References")]
-    
     //game references
     private BallManager ballManager;
     private Transform ballSpawnPoint;
@@ -133,10 +133,6 @@ public class StateController : MonoBehaviour
                     waitingForInput = true;
                 }
                 break;
-
-            case GameState.Results:
-                //wait for user input
-                break;
         }
     }
 
@@ -243,8 +239,8 @@ public class StateController : MonoBehaviour
 
     void GoToResults()
     {
-        currentState = GameState.Results;
-        Debug.Log($"Final Score: {playerScore} | Press any key to restart");
+        PlayerPrefs.SetInt("NewScore", playerScore);
+        SceneManager.LoadScene("ScoreScreen");
     }
 
     void TriggerMixUp()
