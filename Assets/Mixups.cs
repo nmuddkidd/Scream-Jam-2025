@@ -132,6 +132,7 @@ public class mixups : MonoBehaviour
     void SpawnGorilla()
     {
         mixuptext.text = "goilla";
+        
         Instantiate(gorilla, randinbounds(), transform.rotation);
     }
     // For testing mixups in editor
