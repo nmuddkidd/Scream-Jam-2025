@@ -67,6 +67,7 @@
     <Compile Include="Assets\rat.cs" />
     <Compile Include="Assets\BallManager.cs" />
     <Compile Include="Assets\StateController.cs" />
+    <Compile Include="Assets\Scripts\GravityBallsMixUp.cs" />
     <Compile Include="Assets\blip.cs" />
     <Compile Include="Assets\P1.cs" />
     <Compile Include="Assets\Scripts\SuperPaddleMixup.cs" />
