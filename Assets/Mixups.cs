@@ -8,6 +8,11 @@ using DG.Tweening;
 
 public class mixups : MonoBehaviour
 {
+    //put in new event audio
+    public AudioClip neweventsnd;
+    private AudioSource neweventAudio;
+    public AudioClip Gorillasnd;
+    private AudioSource GorillaAudio;
     public GameObject rat;
     public GameObject gorilla;
     public TMP_Text mixuptext;
@@ -16,11 +21,20 @@ public class mixups : MonoBehaviour
     private float Timer;
     void Start()
     {
+        //start new event audio
+        neweventAudio = GetComponent<AudioSource>();
+
         player = FindFirstObjectByType<P1>();
+        
+        //start gorilla audio
+        GorillaAudio = GetComponent<AudioSource>();
     }
 
     public void DoMixup()
     {        
+        //play new event audio
+        neweventAudio.PlayOneShot(neweventsnd, 2.0f);
+
         switch (UnityEngine.Random.Range(0, 8))
         {
             case 0:
