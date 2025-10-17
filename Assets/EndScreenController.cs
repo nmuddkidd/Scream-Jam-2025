@@ -6,28 +6,43 @@ using UnityEngine.SceneManagement;
 public class EndScreenController : MonoBehaviour
 {
     private int Score;
+    private int[] HighScores = new int[6];
     public TMP_Text HighScore;
     public TMP_Text ScoreText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Score = PlayerPrefs.GetInt("NewScore"); // retrieves from the NewScore Key
-        ScoreText.text = "Your Score: " + Score;
-        if (Score > PlayerPrefs.GetInt("HighScore"))
+        HighScores[0] = PlayerPrefs.GetInt("HighScore");
+        for (int i = 1; i <= 4; i++)
         {
-            HighScoreShow(Score);
+            HighScores[i] = PlayerPrefs.GetInt("Score" + i);
         }
+        HighScores[5] = Score;
+        ScoreText.text = "Your Score: " + Score;
+        UpdateHighScore();
     }
     // Update is called once per frame
     void Update()
     {
         
     }
-    void HighScoreShow(int High)
-        {
-            PlayerPrefs.SetInt("HighScore", Score);
-            HighScore.gameObject.SetActive(true);
-        }
+    void UpdateHighScore()
+    {
+            System.Array.Sort(HighScores);
+            PlayerPrefs.SetInt("HighScore", HighScores[5]);
+            int j = 1;
+            for (int i = 4; i > 0; i--)
+            {
+                PlayerPrefs.SetInt("Score"+j, HighScores[i]);
+                j++;
+            }
+            if(Score == HighScores[5])
+            {
+                HighScore.gameObject.SetActive(true);
+            }
+            
+    }
     public void RetryGame()
     {
         SceneManager.LoadScene("SampleScene");
