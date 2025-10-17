@@ -216,4 +216,10 @@ public class ControlChangeMixup : MonoBehaviour
         yield return new WaitForSeconds(1);
         control_info.gameObject.SetActive(false);
     }
+
+    void OnDestroy()
+    {
+        P1.keyboardUpKey = Key.W;
+        P1.keyboardDownKey = Key.S;
+    }
 }

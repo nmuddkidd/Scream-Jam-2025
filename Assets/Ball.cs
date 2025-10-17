@@ -90,13 +90,18 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+
+        rb.linearVelocity += new Vector2(UnityEngine.Random.Range(-0.01f, 0.01f), UnityEngine.Random.Range(-0.01f, 0.01f));
+        if(rb.linearVelocity.magnitude<baseSpeed)
+        {
+            rb.linearVelocity = rb.linearVelocity.normalized * baseSpeed;
+        }
         //Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name.Equals("AP1") || collision.gameObject.name.Equals("UP1"))
         {
             //Although this is same sound I don't have pitch randomizer for Racket sounds
-            playerAudio.PlayOneShot(playerinteractsnd);
-
-            rb.linearVelocity += new Vector2(UnityEngine.Random.Range(-0.1f, 0.1f), UnityEngine.Random.Range(-0.1f, 0.1f));
+            playerAudio.PlayOneShot(playerinteractsnd);  
+            stateController.PlayerScored(10, gameObject.transform.position);          
 
             // Not sure what this was meant to do, commenting out for now. We can reply on unity physics for bounce.
 
@@ -109,14 +114,14 @@ public class Ball : MonoBehaviour
             if (!ballcollideAudio.isPlaying)
             ballcollideAudio.PlayOneShot(ballscollidesnd);
             Instantiate(particle, transform.position, Quaternion.identity);
+            stateController.PlayerScored(1, gameObject.transform.position);
         }
         else
         {
             //Will play same sound with randomized pitch for every other ball collision instance cuz it feels less repetitive
             playerAudio.pitch = UnityEngine.Random.Range(1f, 2f);
             playerAudio.PlayOneShot(playerinteractsnd);
-
-        }
-            stateController.PlayerScored(10, gameObject.transform.position);
+            stateController.PlayerScored(1, gameObject.transform.position);
+        }        
     }
 }

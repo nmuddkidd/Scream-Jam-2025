@@ -14,6 +14,7 @@ public class SlowDownSpeedUpMixUp : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        Time.timeScale = 1f;
     }
 
     public void DoMixUp()
