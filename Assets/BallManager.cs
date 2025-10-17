@@ -28,6 +28,10 @@ public class BallManager : MonoBehaviour
     public System.Action<GameObject> OnBallDestroyed;
     public System.Action OnAllBallsDestroyed;
 
+    [SerializeField]
+    GameObject Bounds;
+    Bounds boundsCache;
+
     void Awake()
     {
         Instance = this;
@@ -35,7 +39,7 @@ public class BallManager : MonoBehaviour
 
     void Start()
     {
-
+        boundsCache = Bounds.GetComponent<SpriteRenderer>().bounds;
         scoreAudio = GetComponent<AudioSource>();
 
         Debug.Log("BallManager: Starting up...");
@@ -48,6 +52,7 @@ public class BallManager : MonoBehaviour
         {
             Debug.Log("BallManager: StateController found successfully!");
         }
+        InvokeRepeating("CleanUpBalls", 1f, 1f);
     }
 
     void Update()
@@ -57,9 +62,25 @@ public class BallManager : MonoBehaviour
         {
             stateController = FindFirstObjectByType<StateController>();
         }
-        
+
         // Clean up destroyed balls
         CleanupDestroyedBalls();
+    }
+
+    public bool InBounds(Vector2 position)
+    {
+        return boundsCache.Contains(position);
+    }
+    
+    public void CleanUpBalls()
+    {
+        foreach (var ball in activeBalls)
+        {
+            if (InBounds(ball.transform.position))
+            {
+                DestroyBall(ball);
+            }
+        }
     }
     
     public GameObject SpawnBall()
