@@ -5,6 +5,10 @@ using System;
 
 public class mixups : MonoBehaviour
 {
+    //put in new event audio
+    public AudioClip neweventsnd;
+    private AudioSource neweventAudio;
+
     public GameObject rat;
     public GameObject gorilla;
     private int difficulty;
@@ -12,11 +16,17 @@ public class mixups : MonoBehaviour
     private BallManager ballManager;
     void Start()
     {
+        //start new event audio
+        neweventAudio = GetComponent<AudioSource>();
+        
         player = FindFirstObjectByType<P1>();
     }
 
     public void DoMixup()
     {
+        //play new event audio
+        neweventAudio.PlayOneShot(neweventsnd, 2.0f);
+
         switch (UnityEngine.Random.Range(0, 10))
         {
             case 0:
