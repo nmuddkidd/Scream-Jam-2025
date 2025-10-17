@@ -213,6 +213,7 @@ public class ControlChangeMixup : MonoBehaviour
         control_info.text = "Up-" + controls[ran] + " " + "Down-" + controls[ran2];
         control_info.gameObject.SetActive(true);
         yield return new WaitUntil(() => { return Keyboard.current[Newkey].IsPressed() || Keyboard.current[Newkeydown].IsPressed(); });
+        yield return new WaitForSeconds(1);
         control_info.gameObject.SetActive(false);
     }
 }

@@ -21,7 +21,7 @@ public class Ball : MonoBehaviour
 
     private BallManager ballManager;
     public StateController stateController;
-
+    public GameObject particle;
     void Start()
     {
         playerAudio = GetComponent<AudioSource>();
@@ -104,6 +104,7 @@ public class Ball : MonoBehaviour
         {
             //Simply to have a diff sound effect for when Balls collide (it does play twice but I like it)
             playerAudio.PlayOneShot(ballscollidesnd);
+            Instantiate(particle, transform.position, Quaternion.identity);
         }
         else
         {

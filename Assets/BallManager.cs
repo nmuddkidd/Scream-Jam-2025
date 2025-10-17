@@ -14,7 +14,7 @@ public class BallManager : MonoBehaviour
     public GameObject ballPrefab;
     public Vector2 spawnPosition = Vector2.zero;
     public float initialSpeed = 8f;
-
+    
     [Header("Spawn Settings")]
     public float respawnDelay = 3f;
     [HideInInspector]
@@ -24,11 +24,15 @@ public class BallManager : MonoBehaviour
     private StateController stateController;
     private bool isRespawnScheduled = false;
 
-    private int _resetgoalscored;
-
     public System.Action<GameObject> OnBallSpawned;
     public System.Action<GameObject> OnBallDestroyed;
     public System.Action OnAllBallsDestroyed;
+
+    [SerializeField]
+    GameObject Bounds;
+    Bounds boundsCache;
+
+    private int _resetgoalscored;
 
     void Awake()
     {
@@ -37,6 +41,7 @@ public class BallManager : MonoBehaviour
 
     void Start()
     {
+        boundsCache = Bounds.GetComponent<SpriteRenderer>().bounds;
         scoreAudio = GetComponent<AudioSource>();
 
         Debug.Log("BallManager: Starting up...");
@@ -50,6 +55,7 @@ public class BallManager : MonoBehaviour
             Debug.Log("BallManager: StateController found successfully!");
         }
         _resetgoalscored = stateController.goalScored;
+        InvokeRepeating("CleanUpBalls", 1f, 1f);
 
     }
 
@@ -60,9 +66,26 @@ public class BallManager : MonoBehaviour
         {
             stateController = FindFirstObjectByType<StateController>();
         }
-        
+
         // Clean up destroyed balls
         CleanupDestroyedBalls();
+    }
+
+    public bool InBounds(Vector2 position)
+    {
+        return boundsCache.Contains(position);
+    }
+    
+    public void CleanUpBalls()
+    {
+        var copy = new List<GameObject>(activeBalls);
+        foreach (var ball in copy)
+        {
+            if (!InBounds(ball.transform.position))
+            {
+                DestroyBall(ball);
+            }
+        }
     }
     
     public GameObject SpawnBall()
@@ -115,8 +138,7 @@ public class BallManager : MonoBehaviour
             {
                 scoreAudio.PlayOneShot(aiscoresnd, 1.0f);
                 stateController.AIScored();
-                stateController.goalScored = 100;
-
+                stateController.goalScored = _resetgoalscored;
             }
             else
             {
