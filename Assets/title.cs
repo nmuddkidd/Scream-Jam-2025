@@ -1,4 +1,7 @@
+
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class title : MonoBehaviour
 {
@@ -11,6 +14,9 @@ public class title : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Keyboard.current.anyKey.isPressed)
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
     }
 }
