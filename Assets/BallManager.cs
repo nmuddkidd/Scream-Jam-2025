@@ -78,9 +78,10 @@ public class BallManager : MonoBehaviour
     
     public void CleanUpBalls()
     {
-        foreach (var ball in activeBalls)
+        var copy = new List<GameObject>(activeBalls);
+        foreach (var ball in copy)
         {
-            if (InBounds(ball.transform.position))
+            if (!InBounds(ball.transform.position))
             {
                 DestroyBall(ball);
             }
