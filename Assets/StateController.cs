@@ -132,10 +132,6 @@ public class StateController : MonoBehaviour
                     waitingForInput = true;
                 }
                 break;
-
-            case GameState.Results:
-                //wait for user input
-                break;
         }
     }
 
