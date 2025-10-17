@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BallManager : MonoBehaviour
 {
+    public static BallManager Instance;
     public AudioClip aiscoresnd;
     public AudioClip playerscoresnd;
     private AudioSource scoreAudio;
@@ -15,14 +17,21 @@ public class BallManager : MonoBehaviour
     
     [Header("Spawn Settings")]
     public float respawnDelay = 3f;
-    
-    private List<GameObject> activeBalls = new List<GameObject>();
+    [HideInInspector]
+    public List<GameObject> activeBalls = new List<GameObject>();
+
+    public UnityEvent<Ball> OnBallSpawnedEvent;
     private StateController stateController;
     private bool isRespawnScheduled = false;
 
     public System.Action<GameObject> OnBallSpawned;
     public System.Action<GameObject> OnBallDestroyed;
     public System.Action OnAllBallsDestroyed;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -78,8 +87,10 @@ public class BallManager : MonoBehaviour
             float xDirection = isRight ? 1f : -1f;
             float yDirection = Random.Range(-0.5f, 0.5f);
             Vector2 direction = new Vector2(xDirection, yDirection);
-            
+
             ballScript.Initialize(customBaseSpeed, direction);
+            
+            OnBallSpawnedEvent?.Invoke(ballScript);
         }
         
         activeBalls.Add(newBall);

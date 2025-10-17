@@ -29,9 +29,15 @@ public class ControlChangeMixup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    public IEnumerator DoMixUp()
+    public void DoMixUp()
+    {
+        StopAllCoroutines();
+        StartCoroutine(ControlMixUp());
+    }
+
+    public IEnumerator ControlMixUp()
     {
         UnityEngine.Debug.Log("changing controls");
         int ran = UnityEngine.Random.Range(0, 25);
@@ -118,7 +124,7 @@ public class ControlChangeMixup : MonoBehaviour
                 break;
         }
         int ran2 = UnityEngine.Random.Range(0, 25);
-        while(ran2 == ran)
+        while (ran2 == ran)
         {
             ran2 = UnityEngine.Random.Range(0, 25);
         }
@@ -204,11 +210,9 @@ public class ControlChangeMixup : MonoBehaviour
                 P1.keyboardDownKey = Key.Z;
                 break;
         }
-        control_info.text = "Up-" + controls[ran] + "" + "\nDown-" + controls[ran2];
+        control_info.text = "Up-" + controls[ran] + " " + "Down-" + controls[ran2];
         control_info.gameObject.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitUntil(() => { return Keyboard.current[Newkey].IsPressed() || Keyboard.current[Newkeydown].IsPressed(); });
         control_info.gameObject.SetActive(false);
-
-
     }
 }

@@ -54,7 +54,7 @@ public class RotateMixUp : MonoBehaviour
         DOTween.Kill(mainCamera);
         starttime = Time.realtimeSinceStartup;
         mainCamera.DOOrthoSize(VerticalSize, animationDuration).SetEase(Ease.InOutSine);
-        mainCamera.transform.DORotate(new Vector3(0, 0, Random.value < 0.5f ? 90 : -90), animationDuration, RotateMode.Fast).OnUpdate(() =>
+        mainCamera.transform.DORotate(new Vector3(0, 0, Random.Range(-90, 90)), animationDuration, RotateMode.Fast).OnUpdate(() =>
         {
             if (change_gravity)
                 Physics2D.gravity = mainCamera.transform.up * -9.81f;
