@@ -24,7 +24,7 @@ public class rat : MonoBehaviour
         {
             newdesired();
         }
-        Debug.Log(transform.position + " " + desiredpos);
+        //Debug.Log(transform.position + " " + desiredpos);
         if (Time.realtimeSinceStartup - starttime >= duration)
         {            
             duration = Random.Range(minduration, maxduration);

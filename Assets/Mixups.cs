@@ -6,7 +6,7 @@ using System;
 public class mixups : MonoBehaviour
 {
     public GameObject rat;
-    public GorillaSpawn GorillaSpawn;
+    public GameObject gorilla;
     private int difficulty;
     private P1 player;
     private BallManager ballManager;
@@ -17,7 +17,7 @@ public class mixups : MonoBehaviour
 
     public void DoMixup()
     {
-        switch (UnityEngine.Random.Range(0, 7))
+        switch (UnityEngine.Random.Range(0, 10))
         {
             case 0:
                 SpawnBall();
@@ -108,7 +108,7 @@ public class mixups : MonoBehaviour
 
     void SpawnRat()
     {
-        Instantiate(rat, randinbounds(),transform.rotation);
+        Instantiate(rat, randinbounds(), transform.rotation);
     }
 
     Vector2 randinbounds()
@@ -118,7 +118,7 @@ public class mixups : MonoBehaviour
 
     void SpawnGorilla()
     {
-        GorillaSpawn.SpawnGorillaRoutine();
+        Instantiate(gorilla, randinbounds(), transform.rotation);
     }
     // For testing mixups in editor
 #if UNITY_EDITOR
