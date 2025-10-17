@@ -34,6 +34,6 @@ public class EndScreenController : MonoBehaviour
     }
     public void ExitToMain()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Title");
     }
 }

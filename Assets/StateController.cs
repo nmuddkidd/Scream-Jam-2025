@@ -127,11 +127,8 @@ public class StateController : MonoBehaviour
                 break;
 
             case GameState.GameEnd:
-                if (waitingForInput)
-                {
-                    Invoke(nameof(GoToResults), 2f);
+                    GoToResults();
                     waitingForInput = true;
-                }
                 break;
         }
     }
@@ -239,6 +236,7 @@ public class StateController : MonoBehaviour
 
     void GoToResults()
     {
+        Debug.Log("You lost.");
         PlayerPrefs.SetInt("NewScore", playerScore);
         SceneManager.LoadScene("ScoreScreen");
     }
