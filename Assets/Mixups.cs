@@ -15,6 +15,7 @@ public class mixups : MonoBehaviour
     private AudioSource GorillaAudio;
     public GameObject rat;
     public GameObject gorilla;
+    public GameObject fakeballs;
     public TMP_Text mixuptext;
     private P1 player;
     private BallManager ballManager;
